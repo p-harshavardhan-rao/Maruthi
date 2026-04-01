@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maruthi PSCC Poles – India's Leading Concrete Pole Manufacturer</title>
+<meta name="description" content="Maruthi PSCC Poles – Premier manufacturer of Pre-Stressed Cement Concrete Poles from Sirisilla, Telangana. Powering India's rural electrification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* PAGE-SPECIFIC HERO */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,200,80,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,80,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridMove 20s linear infinite;
+}
+@keyframes gridMove {
+  0%{background-position:0 0}
+  100%{background-position:60px 60px}
+}
+.hero-glow {
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,200,80,0.18) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100%{opacity:0.6; transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:1; transform:translate(-50%,-50%) scale(1.1)}
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 120px 40px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,200,80,0.1); border: 1px solid rgba(0,200,80,0.3);
+  padding: 8px 20px; border-radius: 50px;
+  color: var(--green); font-family: 'Share Tech Mono', monospace; font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 24px; animation: fadeUp 0.8s 0.2s both;
+}
+.hero-badge::before {
+  content: ''; width: 8px; height: 8px; background: var(--green);
+  border-radius: 50%; animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: clamp(42px, 6vw, 82px);
+  font-weight: 900; line-height: 1.0;
+  color: var(--white); margin-bottom: 24px;
+  animation: fadeUp 0.8s 0.4s both;
+}
+.hero-title .accent { color: var(--green); }
+.hero-title .outline {
+  -webkit-text-stroke: 2px var(--green);
+  color: transparent;
+}
+.hero-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px; color: rgba(255,255,255,0.65);
+  line-height: 1.7; margin-bottom: 40px;
+  animation: fadeUp 0.8s 0.6s both;
+}
+.hero-cta {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.8s both;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green); color: var(--bg-dark);
+  padding: 16px 36px; border-radius: 4px;
+  font-family: 'Exo 2', sans-serif; font-weight: 700;
+  font-size: 15px; text-decoration: none; text-transform: uppercase;
+  letter-spacing: 1px; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,200,80,0.4); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--white);
+  padding: 16px 36px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);
+  font-family: 'Exo 2', sans-serif; font-weight: 600;
+  font-size: 15px; text-decoration: none; text-transform: uppercase;
+  letter-spacing: 1px; transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+.hero-stats {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
+  animation: fadeUp 0.8s 1s both;
+}
+.stat-card-hero {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 24px 20px; text-align: center;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.stat-card-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+  transform: scaleX(0); transition: transform 0.3s;
+}
+.stat-card-hero:hover::before { transform: scaleX(1); }
+.stat-card-hero:hover { background: rgba(0,200,80,0.06); transform: translateY(-4px); }
+.stat-num {
+  font-family: 'Exo 2', sans-serif; font-size: 36px; font-weight: 900;
+  color: var(--green); line-height: 1;
+}
+.stat-label { font-family: 'Rajdhani', sans-serif; color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 6px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* 3D POLE VISUAL */
+.hero-visual {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  animation: fadeUp 0.8s 0.6s both;
+}
+.pole-scene {
+  position: relative; width: 320px; height: 480px;
+}
+.pole-3d {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  width: 40px; height: 400px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 40%, #333 60%, #1a1a1a 100%);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.6), -2px 0 6px rgba(255,255,255,0.05), inset 2px 0 4px rgba(255,255,255,0.08);
+  animation: poleFloat 6s ease-in-out infinite;
+}
+@keyframes poleFloat {
+  0%,100%{transform:translate(-50%,-50%) rotateY(0deg)}
+  25%{transform:translate(-50%,-52%) rotateY(5deg)}
+  75%{transform:translate(-50%,-48%) rotateY(-5deg)}
+}
+.pole-band {
+  position: absolute; left: -5px; right: -5px; height: 8px;
+  background: linear-gradient(180deg, rgba(0,200,80,0.6), rgba(0,200,80,0.3));
+  border-radius: 2px;
+}
+.pole-top {
+  position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 8px;
+  background: linear-gradient(90deg, #555, #333, #555);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.pole-wire {
+  position: absolute; top: -12px; left: 50%;
+  width: 2px; height: 60px; background: rgba(255,200,0,0.4);
+  transform-origin: top center;
+  animation: wireSwing 3s ease-in-out infinite;
+}
+@keyframes wireSwing {
+  0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)}
+}
+.pole-glow-ring {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,200,80,0.2);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+.pole-glow-ring:nth-child(2) {
+  width: 280px; height: 280px;
+  animation-delay: 0.5s;
+}
+.pole-glow-ring:nth-child(3) {
+  width: 360px; height: 360px;
+  animation-delay: 1s;
+}
+@keyframes ringPulse {
+  0%{opacity:0.8;transform:translate(-50%,-50%) scale(0.9)}
+  50%{opacity:0.3;transform:translate(-50%,-50%) scale(1)}
+  100%{opacity:0.8;transform:translate(-50%,-50%) scale(0.9)}
+}
+.floating-tag {
+  position: absolute; background: rgba(0,200,80,0.1); border: 1px solid rgba(0,200,80,0.3);
+  padding: 8px 14px; border-radius: 8px; color: var(--green);
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  animation: float 4s ease-in-out infinite;
+}
+.floating-tag:nth-child(1) { top: 20px; right: 10px; animation-delay: 0s; }
+.floating-tag:nth-child(2) { bottom: 60px; left: 0px; animation-delay: 1.5s; }
+.floating-tag:nth-child(3) { top: 40%; left: -10px; animation-delay: 0.8s; }
+@keyframes float {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}
+}
+
+/* FEATURES STRIP */
+.features-strip {
+  background: rgba(0,200,80,0.08); border-top: 1px solid rgba(0,200,80,0.15); border-bottom: 1px solid rgba(0,200,80,0.15);
+  padding: 20px 40px;
+}
+.features-strip-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.strip-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Rajdhani', sans-serif; font-weight: 600;
+  color: rgba(255,255,255,0.8); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+}
+.strip-icon { font-size: 20px; }
+
+/* WHY SECTION */
+.why-section { padding: 100px 40px; }
+.why-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: 'Share Tech Mono', monospace; font-size: 12px;
+  color: var(--green); letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Exo 2', sans-serif; font-size: clamp(32px,4vw,52px); font-weight: 800;
+  color: var(--white); line-height: 1.1; margin-bottom: 16px;
+}
+.section-title .accent { color: var(--green); }
+.section-subtitle { font-family: 'Rajdhani', sans-serif; font-size: 17px; color: rgba(255,255,255,0.55); max-width: 560px; line-height: 1.7; margin-bottom: 60px; }
+.why-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+}
+.why-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 32px 24px;
+  transition: all 0.4s; cursor: pointer; position: relative; overflow: hidden;
+}
+.why-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,200,80,0.05), transparent);
+  opacity: 0; transition: opacity 0.4s;
+}
+.why-card:hover::after { opacity: 1; }
+.why-card:hover { border-color: rgba(0,200,80,0.3); transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.why-icon {
+  width: 56px; height: 56px; background: rgba(0,200,80,0.1);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 20px; transition: all 0.3s;
+}
+.why-card:hover .why-icon { background: rgba(0,200,80,0.2); transform: scale(1.1) rotate(5deg); }
+.why-card h3 { font-family: 'Exo 2', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.why-card p { font-family: 'Rajdhani', sans-serif; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+/* PRODUCTS PREVIEW */
+.products-preview { padding: 100px 40px; background: rgba(255,255,255,0.01); }
+.products-preview-inner { max-width: 1200px; margin: 0 auto; }
+.products-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px;
+}
+.product-tile {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 36px 32px;
+  transition: all 0.4s; cursor: pointer; position: relative; overflow: hidden;
+  text-decoration: none; display: block;
+}
+.product-tile.featured { grid-row: 1 / 3; }
+.product-tile::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--yellow));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.product-tile:hover::before { transform: scaleX(1); }
+.product-tile:hover { border-color: rgba(0,200,80,0.25); transform: translateY(-4px); }
+.tile-tag {
+  display: inline-block; background: rgba(0,200,80,0.12); color: var(--green);
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px;
+  padding: 5px 12px; border-radius: 4px; text-transform: uppercase; margin-bottom: 20px;
+}
+.tile-tag.yellow { background: rgba(255,200,0,0.12); color: var(--yellow); }
+.tile-icon { font-size: 48px; margin-bottom: 20px; }
+.product-tile h3 { font-family: 'Exo 2', sans-serif; font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.product-tile p { font-family: 'Rajdhani', sans-serif; font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.tile-arrow {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 24px;
+  color: var(--green); font-family: 'Exo 2', sans-serif; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; transition: gap 0.3s;
+}
+.product-tile:hover .tile-arrow { gap: 14px; }
+
+/* CTA BANNER */
+.cta-banner {
+  margin: 0 40px; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,200,80,0.15), rgba(255,200,0,0.08));
+  border: 1px solid rgba(0,200,80,0.25);
+  padding: 70px 60px; text-align: center; position: relative; overflow: hidden;
+}
+.cta-banner::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 30 0 L 60 30 L 30 60 L 0 30 Z' fill='none' stroke='rgba(0,200,80,0.05)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+}
+.cta-banner h2 {
+  font-family: 'Exo 2', sans-serif; font-size: clamp(28px,4vw,48px); font-weight: 900;
+  color: var(--white); margin-bottom: 16px; position: relative;
+}
+.cta-banner p { font-family: 'Rajdhani', sans-serif; font-size: 18px; color: rgba(255,255,255,0.65); margin-bottom: 36px; position: relative; }
+.cta-banner .btn-primary { position: relative; }
+
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr; text-align:center;}
+  .hero-cta{justify-content:center;}
+  .hero-visual{display:none;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .products-grid{grid-template-columns:1fr;}
+  .product-tile.featured{grid-row:auto;}
+  .cta-banner{margin:0 20px; padding:40px 24px;}
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpeg" alt="Maruthi PSCC Poles Logo">
+      <div class="logo-text">
+        <span class="logo-main">MARUTHI</span>
+        <span class="logo-sub">PSCC POLES</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+    <button class="nav-burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="mobile-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">⚡ India's Premier PSCC Pole Manufacturer</div>
+      <h1 class="hero-title">
+        Powering<br>
+        <span class="accent">India's</span><br>
+        <span class="outline">Future</span>
+      </h1>
+      <p class="hero-subtitle">From Sirisilla to every corner of the nation — Maruthi PSCC Poles manufactures world-class Pre-Stressed Cement Concrete Poles that form the backbone of India's rural electrification mission.</p>
+      <div class="hero-cta">
+        <a href="products.html" class="btn-primary">
+          <span>Our Products</span>
+          <span>→</span>
+        </a>
+        <a href="contact.html" class="btn-secondary">Get a Quote</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="pole-scene">
+          <div class="pole-glow-ring"></div>
+          <div class="pole-glow-ring"></div>
+          <div class="pole-glow-ring"></div>
+          <div class="pole-3d">
+            <div class="pole-band" style="top:30px"></div>
+            <div class="pole-band" style="top:80px"></div>
+            <div class="pole-band" style="bottom:40px"></div>
+            <div class="pole-top"></div>
+            <div class="pole-wire" style="left:10px"></div>
+            <div class="pole-wire" style="left:28px; animation-delay:0.5s"></div>
+          </div>
+          <div class="floating-tag">⚡ HT Lines</div>
+          <div class="floating-tag">🏗️ 2.75M+ / Year</div>
+          <div class="floating-tag">🚛 PAN India</div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card-hero">
+          <div class="stat-num" data-target="2750000">0</div>
+          <div class="stat-label">Poles / Year</div>
+        </div>
+        <div class="stat-card-hero">
+          <div class="stat-num" data-target="80" data-suffix="+">0</div>
+          <div class="stat-label">Own Trucks</div>
+        </div>
+        <div class="stat-card-hero">
+          <div class="stat-num">PAN</div>
+          <div class="stat-label">India Delivery</div>
+        </div>
+        <div class="stat-card-hero">
+          <div class="stat-num">2021</div>
+          <div class="stat-label">Est. Year</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-strip-inner">
+    <div class="strip-item"><span class="strip-icon">🏭</span> ISO Certified Manufacturing</div>
+    <div class="strip-item"><span class="strip-icon">🚚</span> In-House Logistics Fleet</div>
+    <div class="strip-item"><span class="strip-icon">🏛️</span> Government Approved Supplier</div>
+    <div class="strip-item"><span class="strip-icon">⚡</span> Rural Electrification Focus</div>
+    <div class="strip-item"><span class="strip-icon">🌍</span> PAN India Delivery</div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-section" data-aos>
+  <div class="why-inner">
+    <div class="section-label">// Why Choose Us</div>
+    <h2 class="section-title">The <span class="accent">Maruthi</span> Advantage</h2>
+    <p class="section-subtitle">What makes us India's most trusted name in PSCC Pole manufacturing and delivery.</p>
+    <div class="why-grid">
+      <div class="why-card" data-aos>
+        <div class="why-icon">🏭</div>
+        <h3>World-Class Scale</h3>
+        <p>2.75+ million poles manufactured annually from our state-of-the-art Sirisilla facility — among the largest in India.</p>
+      </div>
+      <div class="why-card" data-aos>
+        <div class="why-icon">🚛</div>
+        <h3>Owned Transport</h3>
+        <p>~80 trucks under company ownership ensures guaranteed delivery timelines that third-party logistics cannot match.</p>
+      </div>
+      <div class="why-card" data-aos>
+        <div class="why-icon">🏛️</div>
+        <h3>Government Trusted</h3>
+        <p>Directly supplying state power departments and DISCOM bodies — a stamp of quality, compliance, and reliability.</p>
+      </div>
+      <div class="why-card" data-aos>
+        <div class="why-icon">🔧</div>
+        <h3>Vertically Integrated</h3>
+        <p>From raw material procurement to delivery on site — we control the full value chain for consistent quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS PREVIEW -->
+<section class="products-preview" data-aos>
+  <div class="products-preview-inner">
+    <div class="section-label">// Our Products</div>
+    <h2 class="section-title">Engineered for <span class="accent">Strength</span></h2>
+    <p class="section-subtitle">Concrete solutions powering India's electricity distribution backbone.</p>
+    <div class="products-grid">
+      <a href="products.html" class="product-tile featured" data-aos>
+        <div class="tile-tag">⭐ Core Product</div>
+        <div class="tile-icon">🏗️</div>
+        <h3>PSCC Poles</h3>
+        <p>Pre-Stressed Cement Concrete Poles — the primary product of Maruthi Industries. Used in HT and LT electricity lines, supplied to State Power Distribution Companies, manufactured at 2.75+ million units annually. Designed to withstand extreme weather and heavy load conditions across India's diverse terrain.</p>
+        <div class="tile-arrow">View Details →</div>
+      </a>
+      <a href="products.html" class="product-tile" data-aos>
+        <div class="tile-tag yellow">Transmission</div>
+        <div class="tile-icon">⚡</div>
+        <h3>Spun Poles</h3>
+        <p>Centrifugally spun for superior compressive strength. Ideal for urban power networks.</p>
+        <div class="tile-arrow">Learn More →</div>
+      </a>
+      <a href="products.html" class="product-tile" data-aos>
+        <div class="tile-tag">Foundation</div>
+        <div class="tile-icon">⚙️</div>
+        <h3>Spun Piles</h3>
+        <p>Pre-stressed piles for deep foundation applications in infrastructure projects.</p>
+        <div class="tile-arrow">Learn More →</div>
+      </a>
+      <a href="products.html" class="product-tile" data-aos>
+        <div class="tile-tag yellow">Rural Infra</div>
+        <div class="tile-icon">🌾</div>
+        <h3>Rural Electrification</h3>
+        <p>Lightweight yet durable poles designed for last-mile connectivity in remote areas.</p>
+        <div class="tile-arrow">Learn More →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section style="padding: 60px 0 100px;" data-aos>
+  <div class="cta-banner">
+    <h2>Ready to Power Your Project?</h2>
+    <p>Contact our team for bulk orders, government tenders, and supply partnerships.</p>
+    <a href="contact.html" class="btn-primary" style="font-size:16px; padding:18px 48px;">Send Enquiry →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.jpeg" alt="Logo" style="height:50px; border-radius:8px; margin-bottom:16px;">
+      <p class="footer-tagline">One of India's largest PSCC Pole manufacturers. Building the infrastructure of an electrified India — from Sirisilla to every corner of the nation.</p>
+      <p class="footer-founder">Founded by <strong>Pusukuri Rama Rao</strong> · Est. 2021 · Sirisilla, Telangana</p>
+    </div>
+    <div class="footer-links-col">
+      <h4>Products</h4>
+      <a href="products.html">PSCC Poles</a>
+      <a href="products.html">Spun Poles</a>
+      <a href="products.html">Spun Piles</a>
+      <a href="products.html">Rural Electrification</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html#strength">Company Strength</a>
+      <a href="about.html#csr">CSR</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@maruthipsccpoles.com">info@maruthipsccpoles.com</a>
+      <a href="contact.html">Get a Quote</a>
+      <p style="color:rgba(255,255,255,0.4); font-size:13px; margin-top:4px;">1-7-418/1, Revenue Colony,<br>Hanamkonda, Telangana – 506 001</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Maruthi PSCC Poles. All rights reserved. | Sirisilla, Telangana, India</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
