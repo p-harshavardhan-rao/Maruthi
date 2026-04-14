@@ -1,351 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products – Maruthi PSCC Poles | Pre-Stressed Concrete Poles India</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-/* PRODUCT CARDS */
-.products-section { padding: 100px 40px; }
-.products-main-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 1200px; margin: 0 auto;
-}
-.product-card {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 20px; overflow: hidden; transition: all 0.4s;
-  cursor: pointer; position: relative;
-}
-.product-card:hover { border-color: rgba(0,200,80,0.3); transform: translateY(-8px); box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
-.product-card-header {
-  padding: 40px 36px 28px;
-  background: linear-gradient(135deg, rgba(0,200,80,0.06), rgba(255,200,0,0.03));
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  position: relative; overflow: hidden;
-}
-.product-card-header::before {
-  content: ''; position: absolute; top: -50px; right: -50px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(0,200,80,0.1), transparent 70%);
-}
-.product-card-header .big-icon { font-size: 64px; margin-bottom: 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,200,80,0.3)); }
-.product-card-header .product-tag {
-  display: inline-block; background: rgba(0,200,80,0.12); color: var(--green);
-  font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 2px;
-  padding: 5px 12px; border-radius: 4px; text-transform: uppercase; margin-bottom: 14px;
-}
-.product-card-header .product-tag.featured-tag { background: rgba(255,200,0,0.12); color: var(--yellow); }
-.product-card-header h3 { font-family: 'Exo 2', sans-serif; font-size: 26px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
-.product-card-header p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
-.product-card-body { padding: 32px 36px; }
-.spec-list { list-style: none; }
-.spec-list li {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5;
-}
-.spec-list li:last-child { border-bottom: none; }
-.spec-list li::before {
-  content: '▶'; color: var(--green); font-size: 9px; margin-top: 4px; flex-shrink: 0;
-}
-.product-card-footer {
-  padding: 20px 36px 28px; display: flex; align-items: center; justify-content: space-between;
-}
-.product-badge {
-  display: flex; align-items: center; gap: 6px;
-  font-family: 'Share Tech Mono', monospace; font-size: 11px;
-  color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px;
-}
-.product-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
-.card-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0,200,80,0.1); border: 1px solid rgba(0,200,80,0.25);
-  color: var(--green); padding: 10px 20px; border-radius: 6px;
-  font-family: 'Exo 2', sans-serif; font-size: 13px; font-weight: 700;
-  text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s;
-}
-.card-cta:hover { background: var(--green); color: var(--bg-dark); transform: scale(1.05); }
-
-/* TECH SPECS TABLE */
-.specs-section { padding: 100px 40px; background: rgba(255,255,255,0.01); }
-.specs-table-wrap { max-width: 1200px; margin: 0 auto; overflow-x: auto; }
-.specs-table {
-  width: 100%; border-collapse: collapse;
-  font-family: 'Rajdhani', sans-serif; font-size: 15px;
-}
-.specs-table th {
-  background: rgba(0,200,80,0.1); color: var(--green);
-  font-family: 'Exo 2', sans-serif; font-size: 13px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; padding: 16px 20px; text-align: left;
-  border-bottom: 2px solid rgba(0,200,80,0.2);
-}
-.specs-table td {
-  padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.65);
-}
-.specs-table tr:hover td { background: rgba(255,255,255,0.02); color: var(--white); }
-.specs-table .tag-cell .tag {
-  display: inline-block; background: rgba(0,200,80,0.12); color: var(--green);
-  font-size: 11px; padding: 3px 10px; border-radius: 4px;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-/* SERVICES */
-.services-section { padding: 100px 40px; }
-.services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
-.service-card {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 16px; padding: 32px 22px; text-align: center; transition: all 0.3s;
-  position: relative; overflow: hidden;
-}
-.service-card::before {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--yellow));
-  transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
-}
-.service-card:hover::before { transform: scaleX(1); }
-.service-card:hover { border-color: rgba(0,200,80,0.2); transform: translateY(-6px); }
-.service-icon { font-size: 38px; margin-bottom: 16px; }
-.service-title { font-family: 'Exo 2', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-.service-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
-
-@media(max-width:900px){
-  .products-main-grid { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
-}
-@media(max-width:600px){
-  .services-grid { grid-template-columns: 1fr; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Maruthi PSCC Poles</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<canvas id="particleCanvas" style="position:fixed;top:0;left:0;z-index:0;pointer-events:none;opacity:0.5"></canvas>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="logo.jpeg" alt="Maruthi logo"/>Maruthi Poles</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Get Quote</a>
+      <button class="nav-burger" onclick="toggleMenu()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Products</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="logo.jpeg" alt="Maruthi PSCC Poles Logo">
-      <div class="logo-text"><span class="logo-main">MARUTHI</span><span class="logo-sub">PSCC POLES</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="products.html" class="active">Products</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">Get a Quote</a>
-    <button class="nav-burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a><a href="about.html">About</a>
-    <a href="products.html">Products</a><a href="contact.html">Contact</a>
-    <a href="contact.html" class="mobile-cta">Get a Quote</a>
-  </div>
-</nav>
+  <section class="hero container">
+    <div class="hero-card" data-reveal>
+      <p class="hero-eyebrow">Product Portfolio</p>
+      <h1>Concrete solutions,<br/>crafted for reliability.</h1>
+      <p>From distribution poles to spun piles, our products are manufactured for long life and predictable performance.</p>
+    </div>
+  </section>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-label">// Our Products</span>
-    <h1>Engineered for <span class="accent">Strength</span><br>Built for <span class="accent">Longevity</span></h1>
-    <p>Concrete solutions powering India's electricity distribution backbone — from rural last-mile to national grid infrastructure.</p>
-  </div>
-</section>
+  <section class="section">
+    <div class="container grid-3">
+      <article class="card" data-reveal><h3>PSCC Poles</h3><p>Core product for HT/LT applications with robust structural performance.</p></article>
+      <article class="card" data-reveal><h3>Spun Poles</h3><p>Centrifugally produced poles with dense matrix and cleaner finish.</p></article>
+      <article class="card" data-reveal><h3>Spun Piles</h3><p>Foundation solutions for civil and infrastructure-heavy deployments.</p></article>
+    </div>
+  </section>
 
-<!-- PRODUCTS GRID -->
-<section class="products-section">
-  <div style="max-width:1200px; margin:0 auto 20px;">
-    <span class="section-label">// Product Range</span>
-    <h2 class="section-title">Our <span class="accent">Concrete Solutions</span></h2>
-  </div>
-  <div class="products-main-grid">
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" data-reveal>Typical specification matrix</h2>
+      <div class="table-wrap" data-reveal>
+        <table>
+          <thead>
+            <tr><th>Product</th><th>Range</th><th>Use Case</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PSCC Poles</td><td>7m – 12m</td><td>Distribution lines</td><td>High volume</td></tr>
+            <tr><td>Spun Poles</td><td>Project-specific</td><td>Urban + transmission</td><td>Custom production</td></tr>
+            <tr><td>Spun Piles</td><td>Project-specific</td><td>Foundations</td><td>By enquiry</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    <div class="product-card" data-aos>
-      <div class="product-card-header">
-        <span class="big-icon">🏗️</span>
-        <div class="product-tag featured-tag">⭐ Core Product</div>
-        <h3>PSCC Poles</h3>
-        <p>Pre-Stressed Cement Concrete Poles — the backbone of India's rural and urban electricity distribution networks.</p>
-      </div>
-      <div class="product-card-body">
-        <ul class="spec-list">
-          <li>Used in High-Tension (HT) and Low-Tension (LT) electricity lines</li>
-          <li>Supplied to State Power Distribution Companies (DISCOMs) across India</li>
-          <li>Manufactured at 2.75+ million units annually from Sirisilla plant</li>
-          <li>Designed to withstand extreme weather and heavy load conditions</li>
-          <li>Available in 7m, 8m, 9m, 10m, 11m and 12m heights</li>
-          <li>Manufactured as per BIS standards (IS: 1678 & IS: 2905)</li>
-          <li>Superior crack resistance and long service life (50+ years)</li>
-        </ul>
-      </div>
-      <div class="product-card-footer">
-        <span class="product-badge">In Stock · Bulk Ready</span>
-        <a href="contact.html" class="card-cta">Get Quote →</a>
-      </div>
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>© <span id="year"></span> Maruthi PSCC Poles</p>
+      <p>Need technical sheets? Contact our team.</p>
     </div>
-
-    <div class="product-card" data-aos>
-      <div class="product-card-header">
-        <span class="big-icon">⚡</span>
-        <div class="product-tag">Transmission</div>
-        <h3>Spun Poles</h3>
-        <p>High-strength centrifugally spun concrete poles for transmission and distribution infrastructure.</p>
-      </div>
-      <div class="product-card-body">
-        <ul class="spec-list">
-          <li>Superior compressive strength via centrifugal spinning process</li>
-          <li>Consistent diameter and smooth finish along full length</li>
-          <li>Ideal for urban power networks and transmission lines</li>
-          <li>Reduced maintenance requirements due to dense concrete matrix</li>
-          <li>Higher load capacity compared to conventional poles</li>
-          <li>Available in various lengths as per project specifications</li>
-          <li>Excellent resistance to corrosion and environmental degradation</li>
-        </ul>
-      </div>
-      <div class="product-card-footer">
-        <span class="product-badge">Custom Orders</span>
-        <a href="contact.html" class="card-cta">Enquire →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-aos>
-      <div class="product-card-header">
-        <span class="big-icon">⚙️</span>
-        <div class="product-tag">Foundation</div>
-        <h3>Spun Piles</h3>
-        <p>Pre-stressed spun concrete piles for deep foundation applications in infrastructure and construction.</p>
-      </div>
-      <div class="product-card-body">
-        <ul class="spec-list">
-          <li>Engineered to transfer loads to deeper, more stable soil layers</li>
-          <li>Pre-stressing significantly increases load-bearing capacity</li>
-          <li>Uniform cross-section and consistent quality throughout</li>
-          <li>Used in bridges, flyovers, buildings, and port structures</li>
-          <li>Available in various diameter and length combinations</li>
-          <li>Faster installation compared to cast-in-situ alternatives</li>
-          <li>Proven performance in soft soil and waterlogged conditions</li>
-        </ul>
-      </div>
-      <div class="product-card-footer">
-        <span class="product-badge">Project Specific</span>
-        <a href="contact.html" class="card-cta">Enquire →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-aos>
-      <div class="product-card-header">
-        <span class="big-icon">🌾</span>
-        <div class="product-tag">Rural Infra</div>
-        <h3>Rural Electrification Poles</h3>
-        <p>Specifically designed for last-mile connectivity in India's rural electrification missions.</p>
-      </div>
-      <div class="product-card-body">
-        <ul class="spec-list">
-          <li>Lightweight yet durable — easy to install in remote areas</li>
-          <li>Optimised for low-tension distribution lines in villages</li>
-          <li>Designed for RGGVY, DDUGJY and PM-KUSUM schemes</li>
-          <li>Minimal maintenance required in rural deployment</li>
-          <li>Cost-effective for large-scale government programmes</li>
-          <li>Manufactured to government specifications and BIS standards</li>
-          <li>Bulk supply capability for district-level electrification drives</li>
-        </ul>
-      </div>
-      <div class="product-card-footer">
-        <span class="product-badge">Govt. Scheme Ready</span>
-        <a href="contact.html" class="card-cta">Bulk Order →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- TECH SPECS TABLE -->
-<section class="specs-section">
-  <div class="specs-table-wrap">
-    <span class="section-label">// Technical Specifications</span>
-    <h2 class="section-title" style="margin-bottom:40px;">PSCC Pole <span class="accent">Specifications</span></h2>
-    <table class="specs-table">
-      <thead>
-        <tr>
-          <th>Pole Height</th>
-          <th>Working Load (kN)</th>
-          <th>Ultimate Load (kN)</th>
-          <th>Depth of Planting</th>
-          <th>Application</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>7.5 Metre</td><td>2.5</td><td>5.0</td><td>1.25 m</td><td>LT Distribution</td><td class="tag-cell"><span class="tag">LT</span></td></tr>
-        <tr><td>8.0 Metre</td><td>3.0</td><td>6.0</td><td>1.35 m</td><td>LT / Service Lines</td><td class="tag-cell"><span class="tag">LT</span></td></tr>
-        <tr><td>9.0 Metre</td><td>4.0</td><td>8.0</td><td>1.50 m</td><td>HT Distribution</td><td class="tag-cell"><span class="tag">HT</span></td></tr>
-        <tr><td>10.0 Metre</td><td>5.0</td><td>10.0</td><td>1.67 m</td><td>HT / Sub-Transmission</td><td class="tag-cell"><span class="tag">HT</span></td></tr>
-        <tr><td>11.0 Metre</td><td>6.0</td><td>12.0</td><td>1.83 m</td><td>11kV Lines</td><td class="tag-cell"><span class="tag">HT</span></td></tr>
-        <tr><td>12.0 Metre</td><td>8.0</td><td>16.0</td><td>2.00 m</td><td>EHT / Transmission</td><td class="tag-cell"><span class="tag">EHT</span></td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:16px; font-size:13px; color:rgba(255,255,255,0.3); font-family:'Share Tech Mono',monospace;">* Specifications as per IS:1678 and IS:2905. Custom specs available on request.</p>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services-section">
-  <div style="max-width:1200px; margin:0 auto;">
-    <span class="section-label">// End-to-End Services</span>
-    <h2 class="section-title">What We <span class="accent">Offer</span></h2>
-    <p class="section-subtitle" style="margin-bottom:50px;">From manufacturing to your project site — we control the full chain so you don't have to.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card" data-aos>
-      <div class="service-icon">🏭</div>
-      <div class="service-title">PSCC Manufacturing</div>
-      <div class="service-desc">High-capacity, precision manufacturing at our Sirisilla plant with strict quality control at every step.</div>
-    </div>
-    <div class="service-card" data-aos>
-      <div class="service-icon">🚚</div>
-      <div class="service-title">In-House Logistics</div>
-      <div class="service-desc">~80 owned trucks for pan-India delivery — no third-party delays, no accountability gaps.</div>
-    </div>
-    <div class="service-card" data-aos>
-      <div class="service-icon">📦</div>
-      <div class="service-title">Bulk Order Fulfilment</div>
-      <div class="service-desc">Designed for government and large infrastructure orders. Scale to millions of units on schedule.</div>
-    </div>
-    <div class="service-card" data-aos>
-      <div class="service-icon">🤝</div>
-      <div class="service-title">Supply Partnerships</div>
-      <div class="service-desc">Long-term supply contracts with DISCOMs and infrastructure bodies. Reliable, repeat-ready supply chain.</div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="logo.jpeg" alt="Logo" style="height:50px; border-radius:8px; margin-bottom:16px;">
-      <p class="footer-tagline">One of India's largest PSCC Pole manufacturers. Building the infrastructure of an electrified India.</p>
-      <p class="footer-founder">Founded by <strong>Pusukuri Rama Rao</strong> · Est. 2021 · Sirisilla, Telangana</p>
-    </div>
-    <div class="footer-links-col"><h4>Products</h4>
-      <a href="products.html">PSCC Poles</a><a href="products.html">Spun Poles</a>
-      <a href="products.html">Spun Piles</a><a href="products.html">Rural Electrification</a>
-    </div>
-    <div class="footer-links-col"><h4>Company</h4>
-      <a href="about.html">About Us</a><a href="about.html#strength">Company Strength</a>
-      <a href="about.html#csr">CSR</a><a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-links-col"><h4>Contact</h4>
-      <a href="mailto:info@maruthipsccpoles.com">info@maruthipsccpoles.com</a>
-      <a href="contact.html">Get a Quote</a>
-      <p style="color:rgba(255,255,255,0.4); font-size:13px; margin-top:4px;">Sirisilla, Telangana, India</p>
-    </div>
-  </div>
-  <div class="footer-bottom"><p>© 2026 Maruthi PSCC Poles. All rights reserved. | Sirisilla, Telangana, India</p></div>
-</footer>
-<script src="main.js"></script>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
